@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router';
-import { Button } from '../../components/ui/Button';
-import { GraduationCap } from 'lucide-react';
-import { motion } from 'motion/react';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router";
+import { Button } from "../../components/ui/button";
+import { GraduationCap } from "lucide-react";
+import { motion } from "motion/react";
 
 export function OTPVerification() {
   const navigate = useNavigate();
-  const [otp, setOtp] = useState(['', '', '', '', '', '']);
+  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
 
   const handleChange = (index: number, value: string) => {
     if (value.length > 1) return;
@@ -22,7 +22,7 @@ export function OTPVerification() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -58,7 +58,12 @@ export function OTPVerification() {
               ))}
             </div>
 
-            <Button type="submit" variant="primary" className="w-full" size="lg">
+            <Button
+              type="submit"
+              variant="primary"
+              className="w-full"
+              size="lg"
+            >
               Verify & Continue
             </Button>
 

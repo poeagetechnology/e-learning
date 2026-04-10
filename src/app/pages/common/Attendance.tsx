@@ -1,34 +1,50 @@
-import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
-import { Button } from '../../components/ui/Button';
-import { CheckCircle, XCircle, Calendar } from 'lucide-react';
-import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
+import { CheckCircle, XCircle, Calendar } from "lucide-react";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 const attendanceBySubject = [
-  { subject: 'Data Structures', present: 28, absent: 2, total: 30 },
-  { subject: 'Database Systems', present: 26, absent: 4, total: 30 },
-  { subject: 'Computer Networks', present: 29, absent: 1, total: 30 },
-  { subject: 'Software Eng.', present: 27, absent: 3, total: 30 },
-  { subject: 'Machine Learning', present: 25, absent: 5, total: 30 },
+  { subject: "Data Structures", present: 28, absent: 2, total: 30 },
+  { subject: "Database Systems", present: 26, absent: 4, total: 30 },
+  { subject: "Computer Networks", present: 29, absent: 1, total: 30 },
+  { subject: "Software Eng.", present: 27, absent: 3, total: 30 },
+  { subject: "Machine Learning", present: 25, absent: 5, total: 30 },
 ];
 
 const overallData = [
-  { name: 'Present', value: 135, color: '#22C55E' },
-  { name: 'Absent', value: 15, color: '#ef4444' },
+  { name: "Present", value: 135, color: "#22C55E" },
+  { name: "Absent", value: 15, color: "#ef4444" },
 ];
 
 const monthlyData = [
-  { month: 'Jan', attendance: 92 },
-  { month: 'Feb', attendance: 89 },
-  { month: 'Mar', attendance: 94 },
-  { month: 'Apr', attendance: 90 },
+  { month: "Jan", attendance: 92 },
+  { month: "Feb", attendance: 89 },
+  { month: "Mar", attendance: 94 },
+  { month: "Apr", attendance: 90 },
 ];
 
 const recentAttendance = [
-  { date: 'Apr 10, 2026', subject: 'Data Structures', status: 'present' },
-  { date: 'Apr 10, 2026', subject: 'Machine Learning', status: 'present' },
-  { date: 'Apr 9, 2026', subject: 'Database Systems', status: 'present' },
-  { date: 'Apr 9, 2026', subject: 'Computer Networks', status: 'absent' },
-  { date: 'Apr 8, 2026', subject: 'Software Engineering', status: 'present' },
+  { date: "Apr 10, 2026", subject: "Data Structures", status: "present" },
+  { date: "Apr 10, 2026", subject: "Machine Learning", status: "present" },
+  { date: "Apr 9, 2026", subject: "Database Systems", status: "present" },
+  { date: "Apr 9, 2026", subject: "Computer Networks", status: "absent" },
+  { date: "Apr 8, 2026", subject: "Software Engineering", status: "present" },
 ];
 
 export function Attendance() {
@@ -36,7 +52,9 @@ export function Attendance() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold">Attendance Management</h1>
-        <p className="text-muted-foreground mt-1">Track and manage attendance records</p>
+        <p className="text-muted-foreground mt-1">
+          Track and manage attendance records
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -65,7 +83,9 @@ export function Attendance() {
               </ResponsiveContainer>
               <div className="text-center mt-4">
                 <div className="text-3xl font-bold text-accent">90%</div>
-                <div className="text-sm text-muted-foreground">Overall Attendance</div>
+                <div className="text-sm text-muted-foreground">
+                  Overall Attendance
+                </div>
               </div>
               <div className="flex gap-4 mt-4">
                 <div className="flex items-center gap-2">
@@ -92,7 +112,11 @@ export function Attendance() {
                 <XAxis dataKey="month" stroke="#64748b" />
                 <YAxis stroke="#64748b" domain={[0, 100]} />
                 <Tooltip />
-                <Bar dataKey="attendance" fill="#22C55E" radius={[8, 8, 0, 0]} />
+                <Bar
+                  dataKey="attendance"
+                  fill="#22C55E"
+                  radius={[8, 8, 0, 0]}
+                />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
@@ -112,20 +136,26 @@ export function Attendance() {
         <CardContent>
           <div className="space-y-4">
             {attendanceBySubject.map((subject) => {
-              const percentage = ((subject.present / subject.total) * 100).toFixed(1);
+              const percentage = (
+                (subject.present / subject.total) *
+                100
+              ).toFixed(1);
               const isLow = parseFloat(percentage) < 75;
-              
+
               return (
                 <div key={subject.subject} className="space-y-2">
                   <div className="flex items-center justify-between">
                     <div>
                       <h4 className="font-medium">{subject.subject}</h4>
                       <p className="text-sm text-muted-foreground">
-                        {subject.present} present, {subject.absent} absent out of {subject.total} classes
+                        {subject.present} present, {subject.absent} absent out
+                        of {subject.total} classes
                       </p>
                     </div>
                     <div className="text-right">
-                      <div className={`text-2xl font-bold ${isLow ? 'text-destructive' : 'text-accent'}`}>
+                      <div
+                        className={`text-2xl font-bold ${isLow ? "text-destructive" : "text-accent"}`}
+                      >
                         {percentage}%
                       </div>
                       {isLow && (
@@ -135,7 +165,7 @@ export function Attendance() {
                   </div>
                   <div className="w-full bg-muted rounded-full h-2">
                     <div
-                      className={`h-2 rounded-full ${isLow ? 'bg-destructive' : 'bg-accent'}`}
+                      className={`h-2 rounded-full ${isLow ? "bg-destructive" : "bg-accent"}`}
                       style={{ width: `${percentage}%` }}
                     />
                   </div>
@@ -158,10 +188,14 @@ export function Attendance() {
                 className="flex items-center justify-between p-4 border border-border rounded-lg hover:border-primary/50 transition-colors"
               >
                 <div className="flex items-center gap-4">
-                  <div className={`p-2 rounded-lg ${
-                    record.status === 'present' ? 'bg-accent/10' : 'bg-destructive/10'
-                  }`}>
-                    {record.status === 'present' ? (
+                  <div
+                    className={`p-2 rounded-lg ${
+                      record.status === "present"
+                        ? "bg-accent/10"
+                        : "bg-destructive/10"
+                    }`}
+                  >
+                    {record.status === "present" ? (
                       <CheckCircle className="w-5 h-5 text-accent" />
                     ) : (
                       <XCircle className="w-5 h-5 text-destructive" />
@@ -169,15 +203,19 @@ export function Attendance() {
                   </div>
                   <div>
                     <h4 className="font-medium">{record.subject}</h4>
-                    <p className="text-sm text-muted-foreground">{record.date}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {record.date}
+                    </p>
                   </div>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                  record.status === 'present'
-                    ? 'bg-accent/10 text-accent'
-                    : 'bg-destructive/10 text-destructive'
-                }`}>
-                  {record.status === 'present' ? 'Present' : 'Absent'}
+                <span
+                  className={`px-3 py-1 rounded-full text-sm font-medium ${
+                    record.status === "present"
+                      ? "bg-accent/10 text-accent"
+                      : "bg-destructive/10 text-destructive"
+                  }`}
+                >
+                  {record.status === "present" ? "Present" : "Absent"}
                 </span>
               </div>
             ))}

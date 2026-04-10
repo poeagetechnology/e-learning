@@ -1,6 +1,11 @@
-import { KPICard } from '../../components/dashboard/KPICard';
-import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
-import { Button } from '../../components/ui/Button';
+import { KPICard } from "../../components/dashboard/KPICard";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
 import {
   ClipboardCheck,
   FileText,
@@ -10,27 +15,65 @@ import {
   Award,
   Clock,
   AlertCircle,
-} from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+} from "lucide-react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 const subjectMarks = [
-  { subject: 'Math', marks: 85 },
-  { subject: 'Physics', marks: 78 },
-  { subject: 'Chemistry', marks: 92 },
-  { subject: 'English', marks: 88 },
-  { subject: 'CS', marks: 95 },
+  { subject: "Math", marks: 85 },
+  { subject: "Physics", marks: 78 },
+  { subject: "Chemistry", marks: 92 },
+  { subject: "English", marks: 88 },
+  { subject: "CS", marks: 95 },
 ];
 
 const upcomingClasses = [
-  { time: '09:00 AM', subject: 'Mathematics', room: 'Room 301', teacher: 'Dr. Smith' },
-  { time: '11:00 AM', subject: 'Physics Lab', room: 'Lab 2', teacher: 'Prof. Johnson' },
-  { time: '02:00 PM', subject: 'Computer Science', room: 'Room 405', teacher: 'Dr. Brown' },
+  {
+    time: "09:00 AM",
+    subject: "Mathematics",
+    room: "Room 301",
+    teacher: "Dr. Smith",
+  },
+  {
+    time: "11:00 AM",
+    subject: "Physics Lab",
+    room: "Lab 2",
+    teacher: "Prof. Johnson",
+  },
+  {
+    time: "02:00 PM",
+    subject: "Computer Science",
+    room: "Room 405",
+    teacher: "Dr. Brown",
+  },
 ];
 
 const pendingAssignments = [
-  { title: 'Data Structures Assignment', subject: 'CS', dueDate: 'Apr 12, 2026', status: 'pending' },
-  { title: 'Physics Lab Report', subject: 'Physics', dueDate: 'Apr 14, 2026', status: 'pending' },
-  { title: 'English Essay', subject: 'English', dueDate: 'Apr 15, 2026', status: 'pending' },
+  {
+    title: "Data Structures Assignment",
+    subject: "CS",
+    dueDate: "Apr 12, 2026",
+    status: "pending",
+  },
+  {
+    title: "Physics Lab Report",
+    subject: "Physics",
+    dueDate: "Apr 14, 2026",
+    status: "pending",
+  },
+  {
+    title: "English Essay",
+    subject: "English",
+    dueDate: "Apr 15, 2026",
+    status: "pending",
+  },
 ];
 
 export function StudentDashboard() {
@@ -38,7 +81,9 @@ export function StudentDashboard() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold">Student Dashboard</h1>
-        <p className="text-muted-foreground mt-1">Welcome back! Here's your overview.</p>
+        <p className="text-muted-foreground mt-1">
+          Welcome back! Here's your overview.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -106,7 +151,9 @@ export function StudentDashboard() {
                   <div className="flex-1">
                     <h4 className="font-medium text-sm">{cls.subject}</h4>
                     <p className="text-xs text-muted-foreground">{cls.room}</p>
-                    <p className="text-xs text-muted-foreground">{cls.teacher}</p>
+                    <p className="text-xs text-muted-foreground">
+                      {cls.teacher}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -120,7 +167,9 @@ export function StudentDashboard() {
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle>Pending Assignments</CardTitle>
-              <Button variant="ghost" size="sm">View All</Button>
+              <Button variant="ghost" size="sm">
+                View All
+              </Button>
             </div>
           </CardHeader>
           <CardContent>
@@ -135,7 +184,9 @@ export function StudentDashboard() {
                       <FileText className="w-5 h-5 text-warning" />
                     </div>
                     <div>
-                      <h4 className="font-medium text-sm">{assignment.title}</h4>
+                      <h4 className="font-medium text-sm">
+                        {assignment.title}
+                      </h4>
                       <p className="text-xs text-muted-foreground mt-1">
                         Subject: {assignment.subject}
                       </p>
@@ -145,7 +196,9 @@ export function StudentDashboard() {
                       </p>
                     </div>
                   </div>
-                  <Button variant="primary" size="sm">Submit</Button>
+                  <Button variant="primary" size="sm">
+                    Submit
+                  </Button>
                 </div>
               ))}
             </div>
@@ -192,17 +245,24 @@ export function StudentDashboard() {
                 <p className="text-sm text-muted-foreground mt-1">
                   The library will now be open until 10 PM during exam week.
                 </p>
-                <p className="text-xs text-muted-foreground mt-2">Posted 2 hours ago</p>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Posted 2 hours ago
+                </p>
               </div>
             </div>
             <div className="flex items-start gap-3 p-4 bg-accent/5 border-l-4 border-accent rounded">
               <Award className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-medium text-sm">Scholarship Applications Open</h4>
+                <h4 className="font-medium text-sm">
+                  Scholarship Applications Open
+                </h4>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Merit-based scholarship applications are now open until April 30th.
+                  Merit-based scholarship applications are now open until April
+                  30th.
                 </p>
-                <p className="text-xs text-muted-foreground mt-2">Posted 5 hours ago</p>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Posted 5 hours ago
+                </p>
               </div>
             </div>
           </div>

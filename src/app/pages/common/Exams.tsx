@@ -1,25 +1,82 @@
-import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
-import { Button } from '../../components/ui/Button';
-import { FileText, Calendar, Clock, Award } from 'lucide-react';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
+import { FileText, Calendar, Clock, Award } from "lucide-react";
 
 const upcomingExams = [
-  { id: 1, subject: 'Data Structures', date: 'Apr 22, 2026', time: '10:00 AM', duration: '3 hours', room: 'Main Hall', type: 'Final' },
-  { id: 2, subject: 'Database Systems', date: 'Apr 24, 2026', time: '10:00 AM', duration: '3 hours', room: 'Main Hall', type: 'Final' },
-  { id: 3, subject: 'Computer Networks', date: 'Apr 26, 2026', time: '10:00 AM', duration: '3 hours', room: 'Main Hall', type: 'Final' },
+  {
+    id: 1,
+    subject: "Data Structures",
+    date: "Apr 22, 2026",
+    time: "10:00 AM",
+    duration: "3 hours",
+    room: "Main Hall",
+    type: "Final",
+  },
+  {
+    id: 2,
+    subject: "Database Systems",
+    date: "Apr 24, 2026",
+    time: "10:00 AM",
+    duration: "3 hours",
+    room: "Main Hall",
+    type: "Final",
+  },
+  {
+    id: 3,
+    subject: "Computer Networks",
+    date: "Apr 26, 2026",
+    time: "10:00 AM",
+    duration: "3 hours",
+    room: "Main Hall",
+    type: "Final",
+  },
 ];
 
 const previousResults = [
-  { subject: 'Software Engineering', type: 'Mid-term', marks: 42, total: 50, percentage: 84, grade: 'A' },
-  { subject: 'Machine Learning', type: 'Mid-term', marks: 45, total: 50, percentage: 90, grade: 'A+' },
-  { subject: 'Data Structures', type: 'Internal 1', marks: 23, total: 25, percentage: 92, grade: 'A+' },
-  { subject: 'Database Systems', type: 'Internal 1', marks: 21, total: 25, percentage: 84, grade: 'A' },
+  {
+    subject: "Software Engineering",
+    type: "Mid-term",
+    marks: 42,
+    total: 50,
+    percentage: 84,
+    grade: "A",
+  },
+  {
+    subject: "Machine Learning",
+    type: "Mid-term",
+    marks: 45,
+    total: 50,
+    percentage: 90,
+    grade: "A+",
+  },
+  {
+    subject: "Data Structures",
+    type: "Internal 1",
+    marks: 23,
+    total: 25,
+    percentage: 92,
+    grade: "A+",
+  },
+  {
+    subject: "Database Systems",
+    type: "Internal 1",
+    marks: 21,
+    total: 25,
+    percentage: 84,
+    grade: "A",
+  },
 ];
 
 const getGradeColor = (grade: string) => {
-  if (grade === 'A+') return 'text-accent';
-  if (grade === 'A') return 'text-primary';
-  if (grade === 'B+' || grade === 'B') return 'text-secondary';
-  return 'text-muted-foreground';
+  if (grade === "A+") return "text-accent";
+  if (grade === "A") return "text-primary";
+  if (grade === "B+" || grade === "B") return "text-secondary";
+  return "text-muted-foreground";
 };
 
 export function Exams() {
@@ -27,7 +84,9 @@ export function Exams() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold">Exams & Results</h1>
-        <p className="text-muted-foreground mt-1">View exam schedules and your results</p>
+        <p className="text-muted-foreground mt-1">
+          View exam schedules and your results
+        </p>
       </div>
 
       <Card>
@@ -62,8 +121,12 @@ export function Exams() {
                   </div>
                 </div>
                 <div className="flex gap-2">
-                  <Button variant="outline" size="sm">View Syllabus</Button>
-                  <Button variant="primary" size="sm">Download Hall Ticket</Button>
+                  <Button variant="outline" size="sm">
+                    View Syllabus
+                  </Button>
+                  <Button variant="primary" size="sm">
+                    Download Hall Ticket
+                  </Button>
                 </div>
               </div>
             ))}
@@ -115,15 +178,24 @@ export function Exams() {
                 </thead>
                 <tbody>
                   {previousResults.map((result, index) => (
-                    <tr key={index} className="border-b border-border hover:bg-muted/50">
+                    <tr
+                      key={index}
+                      className="border-b border-border hover:bg-muted/50"
+                    >
                       <td className="py-3 px-2">{result.subject}</td>
-                      <td className="py-3 px-2 text-sm text-muted-foreground">{result.type}</td>
+                      <td className="py-3 px-2 text-sm text-muted-foreground">
+                        {result.type}
+                      </td>
                       <td className="py-3 px-2 text-center font-medium">
                         {result.marks}/{result.total}
                       </td>
-                      <td className="py-3 px-2 text-center">{result.percentage}%</td>
                       <td className="py-3 px-2 text-center">
-                        <span className={`px-2 py-1 rounded font-semibold ${getGradeColor(result.grade)}`}>
+                        {result.percentage}%
+                      </td>
+                      <td className="py-3 px-2 text-center">
+                        <span
+                          className={`px-2 py-1 rounded font-semibold ${getGradeColor(result.grade)}`}
+                        >
                           {result.grade}
                         </span>
                       </td>

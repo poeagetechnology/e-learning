@@ -1,17 +1,17 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router';
-import { Button } from '../../components/ui/Button';
-import { Input } from '../../components/ui/Input';
-import { GraduationCap, Mail, ArrowLeft } from 'lucide-react';
-import { motion } from 'motion/react';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+import { GraduationCap, Mail, ArrowLeft } from "lucide-react";
+import { motion } from "motion/react";
 
 export function ForgotPassword() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate('/verify-otp');
+    navigate("/verify-otp");
   };
 
   return (
@@ -34,7 +34,9 @@ export function ForgotPassword() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium mb-2">Email Address</label>
+              <label className="block text-sm font-medium mb-2">
+                Email Address
+              </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                 <Input
@@ -48,7 +50,12 @@ export function ForgotPassword() {
               </div>
             </div>
 
-            <Button type="submit" variant="primary" className="w-full" size="lg">
+            <Button
+              type="submit"
+              variant="primary"
+              className="w-full"
+              size="lg"
+            >
               Send Verification Code
             </Button>
 

@@ -1,13 +1,18 @@
-import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
-import { Button } from '../../components/ui/Button';
-import { Plus, Users, GraduationCap, BookOpen, TrendingUp } from 'lucide-react';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
+import { Plus, Users, GraduationCap, BookOpen, TrendingUp } from "lucide-react";
 
 const departments = [
   {
     id: 1,
-    name: 'Computer Science & Engineering',
-    code: 'CSE',
-    hod: 'Dr. Robert Smith',
+    name: "Computer Science & Engineering",
+    code: "CSE",
+    hod: "Dr. Robert Smith",
     students: 450,
     faculty: 24,
     courses: 18,
@@ -15,9 +20,9 @@ const departments = [
   },
   {
     id: 2,
-    name: 'Electronics & Communication',
-    code: 'ECE',
-    hod: 'Prof. Sarah Johnson',
+    name: "Electronics & Communication",
+    code: "ECE",
+    hod: "Prof. Sarah Johnson",
     students: 380,
     faculty: 20,
     courses: 16,
@@ -25,9 +30,9 @@ const departments = [
   },
   {
     id: 3,
-    name: 'Mechanical Engineering',
-    code: 'ME',
-    hod: 'Dr. Michael Brown',
+    name: "Mechanical Engineering",
+    code: "ME",
+    hod: "Dr. Michael Brown",
     students: 320,
     faculty: 18,
     courses: 14,
@@ -35,9 +40,9 @@ const departments = [
   },
   {
     id: 4,
-    name: 'Civil Engineering',
-    code: 'CE',
-    hod: 'Prof. Emily Davis',
+    name: "Civil Engineering",
+    code: "CE",
+    hod: "Prof. Emily Davis",
     students: 290,
     faculty: 16,
     courses: 12,
@@ -69,9 +74,13 @@ export function Departments() {
                   <p className="text-sm text-muted-foreground mt-1">
                     Department Code: {dept.code}
                   </p>
-                  <p className="text-sm text-muted-foreground">HOD: {dept.hod}</p>
+                  <p className="text-sm text-muted-foreground">
+                    HOD: {dept.hod}
+                  </p>
                 </div>
-                <Button variant="outline" size="sm">Edit</Button>
+                <Button variant="outline" size="sm">
+                  Edit
+                </Button>
               </div>
             </CardHeader>
             <CardContent>

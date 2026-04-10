@@ -1,19 +1,51 @@
-import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
-import { Button } from '../../components/ui/Button';
-import { DollarSign, CheckCircle, Clock, Download, CreditCard } from 'lucide-react';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
+import {
+  DollarSign,
+  CheckCircle,
+  Clock,
+  Download,
+  CreditCard,
+} from "lucide-react";
 
 const feeStructure = [
-  { category: 'Tuition Fee', amount: 5000, paid: 5000, status: 'paid' },
-  { category: 'Lab Fee', amount: 1000, paid: 1000, status: 'paid' },
-  { category: 'Library Fee', amount: 500, paid: 500, status: 'paid' },
-  { category: 'Sports Fee', amount: 300, paid: 0, status: 'pending' },
-  { category: 'Development Fee', amount: 400, paid: 0, status: 'pending' },
+  { category: "Tuition Fee", amount: 5000, paid: 5000, status: "paid" },
+  { category: "Lab Fee", amount: 1000, paid: 1000, status: "paid" },
+  { category: "Library Fee", amount: 500, paid: 500, status: "paid" },
+  { category: "Sports Fee", amount: 300, paid: 0, status: "pending" },
+  { category: "Development Fee", amount: 400, paid: 0, status: "pending" },
 ];
 
 const paymentHistory = [
-  { id: 1, date: 'Jan 15, 2026', amount: 6500, method: 'Online', receipt: 'REC001', status: 'Success' },
-  { id: 2, date: 'Aug 20, 2025', amount: 6500, method: 'Card', receipt: 'REC002', status: 'Success' },
-  { id: 3, date: 'Jan 18, 2025', amount: 6000, method: 'Online', receipt: 'REC003', status: 'Success' },
+  {
+    id: 1,
+    date: "Jan 15, 2026",
+    amount: 6500,
+    method: "Online",
+    receipt: "REC001",
+    status: "Success",
+  },
+  {
+    id: 2,
+    date: "Aug 20, 2025",
+    amount: 6500,
+    method: "Card",
+    receipt: "REC002",
+    status: "Success",
+  },
+  {
+    id: 3,
+    date: "Jan 18, 2025",
+    amount: 6000,
+    method: "Online",
+    receipt: "REC003",
+    status: "Success",
+  },
 ];
 
 export function Fees() {
@@ -52,7 +84,9 @@ export function Fees() {
               </div>
               <div>
                 <p className="text-3xl font-bold text-accent">${totalPaid}</p>
-                <p className="text-sm text-muted-foreground">Paid ({paidPercentage}%)</p>
+                <p className="text-sm text-muted-foreground">
+                  Paid ({paidPercentage}%)
+                </p>
               </div>
             </div>
           </CardContent>
@@ -65,7 +99,9 @@ export function Fees() {
                 <Clock className="w-6 h-6 text-destructive" />
               </div>
               <div>
-                <p className="text-3xl font-bold text-destructive">${totalDue}</p>
+                <p className="text-3xl font-bold text-destructive">
+                  ${totalDue}
+                </p>
                 <p className="text-sm text-muted-foreground">Due</p>
               </div>
             </div>
@@ -93,10 +129,14 @@ export function Fees() {
                 className="flex items-center justify-between p-4 border border-border rounded-lg"
               >
                 <div className="flex items-center gap-4">
-                  <div className={`p-2 rounded-lg ${
-                    item.status === 'paid' ? 'bg-accent/10' : 'bg-orange-100 dark:bg-orange-900/20'
-                  }`}>
-                    {item.status === 'paid' ? (
+                  <div
+                    className={`p-2 rounded-lg ${
+                      item.status === "paid"
+                        ? "bg-accent/10"
+                        : "bg-orange-100 dark:bg-orange-900/20"
+                    }`}
+                  >
+                    {item.status === "paid" ? (
                       <CheckCircle className="w-5 h-5 text-accent" />
                     ) : (
                       <Clock className="w-5 h-5 text-orange-600 dark:text-orange-400" />
@@ -105,23 +145,27 @@ export function Fees() {
                   <div>
                     <h4 className="font-medium">{item.category}</h4>
                     <p className="text-sm text-muted-foreground">
-                      {item.status === 'paid' ? `Paid: $${item.paid}` : `Due: $${item.amount}`}
+                      {item.status === "paid"
+                        ? `Paid: $${item.paid}`
+                        : `Due: $${item.amount}`}
                     </p>
                   </div>
                 </div>
                 <div className="text-right">
                   <p className="text-xl font-bold">${item.amount}</p>
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                    item.status === 'paid'
-                      ? 'bg-accent/10 text-accent'
-                      : 'bg-orange-100 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400'
-                  }`}>
-                    {item.status === 'paid' ? 'Paid' : 'Pending'}
+                  <span
+                    className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      item.status === "paid"
+                        ? "bg-accent/10 text-accent"
+                        : "bg-orange-100 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400"
+                    }`}
+                  >
+                    {item.status === "paid" ? "Paid" : "Pending"}
                   </span>
                 </div>
               </div>
             ))}
-            
+
             <div className="pt-4 border-t-2 border-border">
               <div className="flex items-center justify-between text-lg font-semibold">
                 <span>Total</span>
@@ -144,18 +188,29 @@ export function Fees() {
                   <th className="text-left py-3 px-4 font-medium">Date</th>
                   <th className="text-left py-3 px-4 font-medium">Amount</th>
                   <th className="text-left py-3 px-4 font-medium">Method</th>
-                  <th className="text-left py-3 px-4 font-medium">Receipt No.</th>
+                  <th className="text-left py-3 px-4 font-medium">
+                    Receipt No.
+                  </th>
                   <th className="text-left py-3 px-4 font-medium">Status</th>
                   <th className="text-right py-3 px-4 font-medium">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {paymentHistory.map((payment) => (
-                  <tr key={payment.id} className="border-b border-border hover:bg-muted/50">
+                  <tr
+                    key={payment.id}
+                    className="border-b border-border hover:bg-muted/50"
+                  >
                     <td className="py-3 px-4">{payment.date}</td>
-                    <td className="py-3 px-4 font-semibold">${payment.amount}</td>
-                    <td className="py-3 px-4 text-muted-foreground">{payment.method}</td>
-                    <td className="py-3 px-4 font-mono text-sm">{payment.receipt}</td>
+                    <td className="py-3 px-4 font-semibold">
+                      ${payment.amount}
+                    </td>
+                    <td className="py-3 px-4 text-muted-foreground">
+                      {payment.method}
+                    </td>
+                    <td className="py-3 px-4 font-mono text-sm">
+                      {payment.receipt}
+                    </td>
                     <td className="py-3 px-4">
                       <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium">
                         {payment.status}

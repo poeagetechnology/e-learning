@@ -4,7 +4,7 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-} from "../../components/ui/Card";
+} from "../../components/ui/card";
 import {
   Users,
   GraduationCap,

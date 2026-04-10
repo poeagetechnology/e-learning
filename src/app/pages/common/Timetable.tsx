@@ -1,54 +1,83 @@
-import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
-import { Clock } from 'lucide-react';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "../../components/ui/card";
+import { Clock } from "lucide-react";
 
-const timeSlots = ['09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '02:00 PM', '03:00 PM', '04:00 PM'];
-const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+const timeSlots = [
+  "09:00 AM",
+  "10:00 AM",
+  "11:00 AM",
+  "12:00 PM",
+  "02:00 PM",
+  "03:00 PM",
+  "04:00 PM",
+];
+const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
 const timetableData = {
   Monday: [
-    { subject: 'Data Structures', room: 'Room 405', faculty: 'Dr. Smith' },
-    { subject: 'Database Systems', room: 'Lab 3', faculty: 'Prof. Johnson' },
-    { subject: 'Computer Networks', room: 'Room 301', faculty: 'Dr. Brown' },
-    { subject: 'Lunch Break', room: '-', faculty: '-' },
-    { subject: 'Software Engineering', room: 'Room 402', faculty: 'Prof. Davis' },
-    { subject: 'Machine Learning', room: 'Room 502', faculty: 'Dr. Wilson' },
-    { subject: 'Lab', room: 'Lab 2', faculty: 'Dr. Smith' },
+    { subject: "Data Structures", room: "Room 405", faculty: "Dr. Smith" },
+    { subject: "Database Systems", room: "Lab 3", faculty: "Prof. Johnson" },
+    { subject: "Computer Networks", room: "Room 301", faculty: "Dr. Brown" },
+    { subject: "Lunch Break", room: "-", faculty: "-" },
+    {
+      subject: "Software Engineering",
+      room: "Room 402",
+      faculty: "Prof. Davis",
+    },
+    { subject: "Machine Learning", room: "Room 502", faculty: "Dr. Wilson" },
+    { subject: "Lab", room: "Lab 2", faculty: "Dr. Smith" },
   ],
   Tuesday: [
-    { subject: 'Machine Learning', room: 'Room 502', faculty: 'Dr. Wilson' },
-    { subject: 'Data Structures', room: 'Room 405', faculty: 'Dr. Smith' },
-    { subject: 'Free Period', room: '-', faculty: '-' },
-    { subject: 'Lunch Break', room: '-', faculty: '-' },
-    { subject: 'Computer Networks', room: 'Room 301', faculty: 'Dr. Brown' },
-    { subject: 'Database Systems', room: 'Lab 3', faculty: 'Prof. Johnson' },
-    { subject: 'Tutorial', room: 'Room 201', faculty: 'Dr. Brown' },
+    { subject: "Machine Learning", room: "Room 502", faculty: "Dr. Wilson" },
+    { subject: "Data Structures", room: "Room 405", faculty: "Dr. Smith" },
+    { subject: "Free Period", room: "-", faculty: "-" },
+    { subject: "Lunch Break", room: "-", faculty: "-" },
+    { subject: "Computer Networks", room: "Room 301", faculty: "Dr. Brown" },
+    { subject: "Database Systems", room: "Lab 3", faculty: "Prof. Johnson" },
+    { subject: "Tutorial", room: "Room 201", faculty: "Dr. Brown" },
   ],
   Wednesday: [
-    { subject: 'Software Engineering', room: 'Room 402', faculty: 'Prof. Davis' },
-    { subject: 'Machine Learning', room: 'Room 502', faculty: 'Dr. Wilson' },
-    { subject: 'Data Structures', room: 'Room 405', faculty: 'Dr. Smith' },
-    { subject: 'Lunch Break', room: '-', faculty: '-' },
-    { subject: 'Database Systems', room: 'Lab 3', faculty: 'Prof. Johnson' },
-    { subject: 'Computer Networks', room: 'Room 301', faculty: 'Dr. Brown' },
-    { subject: 'Lab', room: 'Lab 2', faculty: 'Dr. Smith' },
+    {
+      subject: "Software Engineering",
+      room: "Room 402",
+      faculty: "Prof. Davis",
+    },
+    { subject: "Machine Learning", room: "Room 502", faculty: "Dr. Wilson" },
+    { subject: "Data Structures", room: "Room 405", faculty: "Dr. Smith" },
+    { subject: "Lunch Break", room: "-", faculty: "-" },
+    { subject: "Database Systems", room: "Lab 3", faculty: "Prof. Johnson" },
+    { subject: "Computer Networks", room: "Room 301", faculty: "Dr. Brown" },
+    { subject: "Lab", room: "Lab 2", faculty: "Dr. Smith" },
   ],
   Thursday: [
-    { subject: 'Computer Networks', room: 'Room 301', faculty: 'Dr. Brown' },
-    { subject: 'Software Engineering', room: 'Room 402', faculty: 'Prof. Davis' },
-    { subject: 'Machine Learning', room: 'Room 502', faculty: 'Dr. Wilson' },
-    { subject: 'Lunch Break', room: '-', faculty: '-' },
-    { subject: 'Data Structures', room: 'Room 405', faculty: 'Dr. Smith' },
-    { subject: 'Database Systems', room: 'Lab 3', faculty: 'Prof. Johnson' },
-    { subject: 'Free Period', room: '-', faculty: '-' },
+    { subject: "Computer Networks", room: "Room 301", faculty: "Dr. Brown" },
+    {
+      subject: "Software Engineering",
+      room: "Room 402",
+      faculty: "Prof. Davis",
+    },
+    { subject: "Machine Learning", room: "Room 502", faculty: "Dr. Wilson" },
+    { subject: "Lunch Break", room: "-", faculty: "-" },
+    { subject: "Data Structures", room: "Room 405", faculty: "Dr. Smith" },
+    { subject: "Database Systems", room: "Lab 3", faculty: "Prof. Johnson" },
+    { subject: "Free Period", room: "-", faculty: "-" },
   ],
   Friday: [
-    { subject: 'Database Systems', room: 'Lab 3', faculty: 'Prof. Johnson' },
-    { subject: 'Data Structures', room: 'Room 405', faculty: 'Dr. Smith' },
-    { subject: 'Software Engineering', room: 'Room 402', faculty: 'Prof. Davis' },
-    { subject: 'Lunch Break', room: '-', faculty: '-' },
-    { subject: 'Machine Learning', room: 'Room 502', faculty: 'Dr. Wilson' },
-    { subject: 'Computer Networks', room: 'Room 301', faculty: 'Dr. Brown' },
-    { subject: 'Lab', room: 'Lab 2', faculty: 'Prof. Johnson' },
+    { subject: "Database Systems", room: "Lab 3", faculty: "Prof. Johnson" },
+    { subject: "Data Structures", room: "Room 405", faculty: "Dr. Smith" },
+    {
+      subject: "Software Engineering",
+      room: "Room 402",
+      faculty: "Prof. Davis",
+    },
+    { subject: "Lunch Break", room: "-", faculty: "-" },
+    { subject: "Machine Learning", room: "Room 502", faculty: "Dr. Wilson" },
+    { subject: "Computer Networks", room: "Room 301", faculty: "Dr. Brown" },
+    { subject: "Lab", room: "Lab 2", faculty: "Prof. Johnson" },
   ],
 };
 
@@ -73,7 +102,10 @@ export function Timetable() {
                     </div>
                   </th>
                   {days.map((day) => (
-                    <th key={day} className="border border-border p-3 bg-muted/50 font-medium">
+                    <th
+                      key={day}
+                      className="border border-border p-3 bg-muted/50 font-medium"
+                    >
                       {day}
                     </th>
                   ))}
@@ -86,24 +118,29 @@ export function Timetable() {
                       {time}
                     </td>
                     {days.map((day) => {
-                      const classInfo = timetableData[day as keyof typeof timetableData][index];
-                      const isBreak = classInfo.subject === 'Lunch Break' || classInfo.subject === 'Free Period';
-                      
+                      const classInfo =
+                        timetableData[day as keyof typeof timetableData][index];
+                      const isBreak =
+                        classInfo.subject === "Lunch Break" ||
+                        classInfo.subject === "Free Period";
+
                       return (
                         <td key={day} className="border border-border p-2">
                           {classInfo && (
                             <div
                               className={`p-3 rounded-lg transition-all hover:shadow-md ${
                                 isBreak
-                                  ? 'bg-muted/50 text-muted-foreground'
-                                  : classInfo.subject === 'Lab'
-                                  ? 'bg-accent/10 border-l-4 border-accent'
-                                  : classInfo.subject === 'Tutorial'
-                                  ? 'bg-secondary/10 border-l-4 border-secondary'
-                                  : 'bg-primary/10 border-l-4 border-primary'
+                                  ? "bg-muted/50 text-muted-foreground"
+                                  : classInfo.subject === "Lab"
+                                    ? "bg-accent/10 border-l-4 border-accent"
+                                    : classInfo.subject === "Tutorial"
+                                      ? "bg-secondary/10 border-l-4 border-secondary"
+                                      : "bg-primary/10 border-l-4 border-primary"
                               }`}
                             >
-                              <div className="font-medium text-sm">{classInfo.subject}</div>
+                              <div className="font-medium text-sm">
+                                {classInfo.subject}
+                              </div>
                               {!isBreak && (
                                 <>
                                   <div className="text-xs text-muted-foreground mt-1">
@@ -181,8 +218,12 @@ export function Timetable() {
               <p className="text-muted-foreground mb-2">Friday</p>
               <div className="space-y-1">
                 <div className="font-medium">Next: Database Systems</div>
-                <div className="text-muted-foreground">Lab 3 • Prof. Johnson</div>
-                <div className="text-xs text-primary mt-2">Starting in 15 minutes</div>
+                <div className="text-muted-foreground">
+                  Lab 3 • Prof. Johnson
+                </div>
+                <div className="text-xs text-primary mt-2">
+                  Starting in 15 minutes
+                </div>
               </div>
             </div>
           </CardContent>

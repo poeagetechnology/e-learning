@@ -1,70 +1,102 @@
-import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
-import { Button } from '../../components/ui/Button';
-import { FileText, Upload, Download, CheckCircle, Clock, AlertCircle } from 'lucide-react';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
+import {
+  FileText,
+  Upload,
+  Download,
+  CheckCircle,
+  Clock,
+  AlertCircle,
+} from "lucide-react";
 
 const assignments = [
   {
     id: 1,
-    title: 'Data Structures Assignment 3',
-    subject: 'Data Structures',
-    dueDate: 'Apr 12, 2026',
-    status: 'pending',
+    title: "Data Structures Assignment 3",
+    subject: "Data Structures",
+    dueDate: "Apr 12, 2026",
+    status: "pending",
     marks: null,
     totalMarks: 100,
-    description: 'Implement Binary Search Tree with all operations',
+    description: "Implement Binary Search Tree with all operations",
   },
   {
     id: 2,
-    title: 'Database Design Project',
-    subject: 'Database Systems',
-    dueDate: 'Apr 14, 2026',
-    status: 'pending',
+    title: "Database Design Project",
+    subject: "Database Systems",
+    dueDate: "Apr 14, 2026",
+    status: "pending",
     marks: null,
     totalMarks: 100,
-    description: 'Design a complete database for e-commerce system',
+    description: "Design a complete database for e-commerce system",
   },
   {
     id: 3,
-    title: 'Network Protocol Analysis',
-    subject: 'Computer Networks',
-    dueDate: 'Apr 8, 2026',
-    status: 'submitted',
+    title: "Network Protocol Analysis",
+    subject: "Computer Networks",
+    dueDate: "Apr 8, 2026",
+    status: "submitted",
     marks: 85,
     totalMarks: 100,
-    description: 'Analyze TCP/IP protocols and create a report',
+    description: "Analyze TCP/IP protocols and create a report",
   },
   {
     id: 4,
-    title: 'UML Diagrams Project',
-    subject: 'Software Engineering',
-    dueDate: 'Apr 5, 2026',
-    status: 'graded',
+    title: "UML Diagrams Project",
+    subject: "Software Engineering",
+    dueDate: "Apr 5, 2026",
+    status: "graded",
     marks: 92,
     totalMarks: 100,
-    description: 'Create complete UML diagrams for a library management system',
+    description: "Create complete UML diagrams for a library management system",
   },
   {
     id: 5,
-    title: 'ML Model Implementation',
-    subject: 'Machine Learning',
-    dueDate: 'Apr 15, 2026',
-    status: 'pending',
+    title: "ML Model Implementation",
+    subject: "Machine Learning",
+    dueDate: "Apr 15, 2026",
+    status: "pending",
     marks: null,
     totalMarks: 100,
-    description: 'Implement and train a classification model',
+    description: "Implement and train a classification model",
   },
 ];
 
 const getStatusConfig = (status: string) => {
   switch (status) {
-    case 'pending':
-      return { icon: Clock, color: 'text-orange-600 dark:text-orange-400', bg: 'bg-orange-100 dark:bg-orange-900/20', label: 'Pending' };
-    case 'submitted':
-      return { icon: CheckCircle, color: 'text-accent', bg: 'bg-accent/10', label: 'Submitted' };
-    case 'graded':
-      return { icon: CheckCircle, color: 'text-primary', bg: 'bg-primary/10', label: 'Graded' };
+    case "pending":
+      return {
+        icon: Clock,
+        color: "text-orange-600 dark:text-orange-400",
+        bg: "bg-orange-100 dark:bg-orange-900/20",
+        label: "Pending",
+      };
+    case "submitted":
+      return {
+        icon: CheckCircle,
+        color: "text-accent",
+        bg: "bg-accent/10",
+        label: "Submitted",
+      };
+    case "graded":
+      return {
+        icon: CheckCircle,
+        color: "text-primary",
+        bg: "bg-primary/10",
+        label: "Graded",
+      };
     default:
-      return { icon: AlertCircle, color: 'text-muted-foreground', bg: 'bg-muted', label: 'Unknown' };
+      return {
+        icon: AlertCircle,
+        color: "text-muted-foreground",
+        bg: "bg-muted",
+        label: "Unknown",
+      };
   }
 };
 
@@ -74,7 +106,9 @@ export function Assignments() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold">Assignments</h1>
-          <p className="text-muted-foreground mt-1">View and submit your assignments</p>
+          <p className="text-muted-foreground mt-1">
+            View and submit your assignments
+          </p>
         </div>
         <Button variant="primary">
           <Upload className="w-4 h-4 mr-2" />
@@ -130,24 +164,34 @@ export function Assignments() {
         {assignments.map((assignment) => {
           const statusConfig = getStatusConfig(assignment.status);
           const StatusIcon = statusConfig.icon;
-          const isOverdue = assignment.status === 'pending' && new Date(assignment.dueDate) < new Date();
+          const isOverdue =
+            assignment.status === "pending" &&
+            new Date(assignment.dueDate) < new Date();
 
           return (
             <Card key={assignment.id} hover>
               <CardContent className="p-6">
                 <div className="flex flex-col md:flex-row md:items-start gap-4">
-                  <div className={`p-3 rounded-lg ${statusConfig.bg} flex-shrink-0`}>
+                  <div
+                    className={`p-3 rounded-lg ${statusConfig.bg} flex-shrink-0`}
+                  >
                     <FileText className={`w-6 h-6 ${statusConfig.color}`} />
                   </div>
 
                   <div className="flex-1">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-2">
                       <div>
-                        <h3 className="text-lg font-semibold">{assignment.title}</h3>
-                        <p className="text-sm text-muted-foreground">{assignment.subject}</p>
+                        <h3 className="text-lg font-semibold">
+                          {assignment.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {assignment.subject}
+                        </p>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${statusConfig.bg} ${statusConfig.color} flex items-center gap-1`}>
+                        <span
+                          className={`px-3 py-1 rounded-full text-sm font-medium ${statusConfig.bg} ${statusConfig.color} flex items-center gap-1`}
+                        >
                           <StatusIcon className="w-4 h-4" />
                           {statusConfig.label}
                         </span>
@@ -162,9 +206,13 @@ export function Assignments() {
                       <div className="flex flex-wrap gap-4 text-sm">
                         <div className="flex items-center gap-2">
                           <Clock className="w-4 h-4 text-muted-foreground" />
-                          <span className={isOverdue ? 'text-destructive font-medium' : ''}>
+                          <span
+                            className={
+                              isOverdue ? "text-destructive font-medium" : ""
+                            }
+                          >
                             Due: {assignment.dueDate}
-                            {isOverdue && ' (Overdue)'}
+                            {isOverdue && " (Overdue)"}
                           </span>
                         </div>
                         {assignment.marks !== null && (
@@ -177,7 +225,7 @@ export function Assignments() {
                       </div>
 
                       <div className="flex gap-2">
-                        {assignment.status === 'pending' && (
+                        {assignment.status === "pending" && (
                           <>
                             <Button variant="outline" size="sm">
                               <Download className="w-4 h-4 mr-2" />
@@ -189,13 +237,19 @@ export function Assignments() {
                             </Button>
                           </>
                         )}
-                        {assignment.status === 'submitted' && (
-                          <Button variant="outline" size="sm">View Submission</Button>
+                        {assignment.status === "submitted" && (
+                          <Button variant="outline" size="sm">
+                            View Submission
+                          </Button>
                         )}
-                        {assignment.status === 'graded' && (
+                        {assignment.status === "graded" && (
                           <>
-                            <Button variant="outline" size="sm">View Feedback</Button>
-                            <Button variant="primary" size="sm">View Details</Button>
+                            <Button variant="outline" size="sm">
+                              View Feedback
+                            </Button>
+                            <Button variant="primary" size="sm">
+                              View Details
+                            </Button>
                           </>
                         )}
                       </div>
