@@ -16,7 +16,7 @@ import {
   Trash2,
   Eye,
 } from "lucide-react";
-import { Modal } from "../../components/ui/Modal";
+import { Modal } from "../../components/ui/modal";
 
 const studentsData = [
   {

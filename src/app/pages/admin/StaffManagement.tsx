@@ -1,22 +1,67 @@
-import { useState } from 'react';
-import { Card, CardContent } from '../../components/ui/Card';
-import { Button } from '../../components/ui/Button';
-import { Input } from '../../components/ui/Input';
-import { Search, Plus, Download, Filter, Edit, Trash2, Eye } from 'lucide-react';
+import { useState } from "react";
+import { Card, CardContent } from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+import {
+  Search,
+  Plus,
+  Download,
+  Filter,
+  Edit,
+  Trash2,
+  Eye,
+} from "lucide-react";
 
 const staffData = [
-  { id: 1, name: 'Dr. Robert Smith', empId: 'EMP001', department: 'Computer Science', position: 'Professor', email: 'robert@college.edu', phone: '+1234567890', experience: '15 years' },
-  { id: 2, name: 'Prof. Sarah Johnson', empId: 'EMP002', department: 'Electronics', position: 'Associate Professor', email: 'sarah@college.edu', phone: '+1234567891', experience: '10 years' },
-  { id: 3, name: 'Dr. Michael Brown', empId: 'EMP003', department: 'Mechanical', position: 'Professor', email: 'michael@college.edu', phone: '+1234567892', experience: '12 years' },
-  { id: 4, name: 'Prof. Emily Davis', empId: 'EMP004', department: 'Computer Science', position: 'Assistant Professor', email: 'emily@college.edu', phone: '+1234567893', experience: '8 years' },
+  {
+    id: 1,
+    name: "Dr. Robert Smith",
+    empId: "EMP001",
+    department: "Computer Science",
+    position: "Professor",
+    email: "robert@college.edu",
+    phone: "+1234567890",
+    experience: "15 years",
+  },
+  {
+    id: 2,
+    name: "Prof. Sarah Johnson",
+    empId: "EMP002",
+    department: "Electronics",
+    position: "Associate Professor",
+    email: "sarah@college.edu",
+    phone: "+1234567891",
+    experience: "10 years",
+  },
+  {
+    id: 3,
+    name: "Dr. Michael Brown",
+    empId: "EMP003",
+    department: "Mechanical",
+    position: "Professor",
+    email: "michael@college.edu",
+    phone: "+1234567892",
+    experience: "12 years",
+  },
+  {
+    id: 4,
+    name: "Prof. Emily Davis",
+    empId: "EMP004",
+    department: "Computer Science",
+    position: "Assistant Professor",
+    email: "emily@college.edu",
+    phone: "+1234567893",
+    experience: "8 years",
+  },
 ];
 
 export function StaffManagement() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredStaff = staffData.filter(staff =>
-    staff.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    staff.empId.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredStaff = staffData.filter(
+    (staff) =>
+      staff.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      staff.empId.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -24,7 +69,9 @@ export function StaffManagement() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold">Staff Management</h1>
-          <p className="text-muted-foreground mt-1">Manage faculty and staff members</p>
+          <p className="text-muted-foreground mt-1">
+            Manage faculty and staff members
+          </p>
         </div>
         <Button variant="primary">
           <Plus className="w-4 h-4 mr-2" />
@@ -60,16 +107,23 @@ export function StaffManagement() {
                 <tr className="border-b border-border">
                   <th className="text-left py-3 px-4 font-medium">Emp ID</th>
                   <th className="text-left py-3 px-4 font-medium">Name</th>
-                  <th className="text-left py-3 px-4 font-medium">Department</th>
+                  <th className="text-left py-3 px-4 font-medium">
+                    Department
+                  </th>
                   <th className="text-left py-3 px-4 font-medium">Position</th>
                   <th className="text-left py-3 px-4 font-medium">Email</th>
-                  <th className="text-left py-3 px-4 font-medium">Experience</th>
+                  <th className="text-left py-3 px-4 font-medium">
+                    Experience
+                  </th>
                   <th className="text-right py-3 px-4 font-medium">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredStaff.map((staff) => (
-                  <tr key={staff.id} className="border-b border-border hover:bg-muted/50 transition-colors">
+                  <tr
+                    key={staff.id}
+                    className="border-b border-border hover:bg-muted/50 transition-colors"
+                  >
                     <td className="py-3 px-4 font-medium">{staff.empId}</td>
                     <td className="py-3 px-4">
                       <div className="flex items-center gap-3">
@@ -79,23 +133,36 @@ export function StaffManagement() {
                         <span>{staff.name}</span>
                       </div>
                     </td>
-                    <td className="py-3 px-4 text-muted-foreground">{staff.department}</td>
+                    <td className="py-3 px-4 text-muted-foreground">
+                      {staff.department}
+                    </td>
                     <td className="py-3 px-4">
                       <span className="px-2 py-1 bg-primary/10 text-primary rounded text-sm">
                         {staff.position}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-muted-foreground">{staff.email}</td>
+                    <td className="py-3 px-4 text-muted-foreground">
+                      {staff.email}
+                    </td>
                     <td className="py-3 px-4">{staff.experience}</td>
                     <td className="py-3 px-4">
                       <div className="flex items-center justify-end gap-2">
-                        <button className="p-2 hover:bg-muted rounded-lg transition-colors" title="View">
+                        <button
+                          className="p-2 hover:bg-muted rounded-lg transition-colors"
+                          title="View"
+                        >
                           <Eye className="w-4 h-4" />
                         </button>
-                        <button className="p-2 hover:bg-muted rounded-lg transition-colors" title="Edit">
+                        <button
+                          className="p-2 hover:bg-muted rounded-lg transition-colors"
+                          title="Edit"
+                        >
                           <Edit className="w-4 h-4" />
                         </button>
-                        <button className="p-2 hover:bg-destructive/10 text-destructive rounded-lg transition-colors" title="Delete">
+                        <button
+                          className="p-2 hover:bg-destructive/10 text-destructive rounded-lg transition-colors"
+                          title="Delete"
+                        >
                           <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
